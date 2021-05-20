@@ -1,0 +1,846 @@
+@charset "UTF-8";
+/*!
+ * ress.css • v2.0.2
+ * MIT License
+ * github.com/filipelinhares/ress
+ */
+/* # =================================================================
+   # Global selectors
+   # ================================================================= */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  /* Prevent adjustments of font size after orientation changes in iOS */
+  word-break: break-word;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+*,
+::before,
+::after {
+  background-repeat: no-repeat;
+  /* Set `background-repeat: no-repeat` to all elements and pseudo elements */
+  box-sizing: inherit;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  /* Inherit text-decoration and vertical align to ::before and ::after pseudo elements */
+  vertical-align: inherit;
+}
+
+* {
+  padding: 0;
+  /* Reset `padding` and `margin` of all elements */
+  margin: 0;
+}
+
+/* # =================================================================
+   # General elements
+   # ================================================================= */
+hr {
+  overflow: visible;
+  /* Show the overflow in Edge and IE */
+  height: 0;
+  /* Add the correct box sizing in Firefox */
+}
+
+details,
+main {
+  display: block;
+  /* Render the `main` element consistently in IE. */
+}
+
+summary {
+  display: list-item;
+  /* Add the correct display in all browsers */
+}
+
+small {
+  font-size: 80%;
+  /* Set font-size to 80% in `small` elements */
+}
+
+[hidden] {
+  display: none;
+  /* Add the correct display in IE */
+}
+
+abbr[title] {
+  border-bottom: none;
+  /* Remove the bottom border in Chrome 57 */
+  /* Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari */
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+a {
+  background-color: transparent;
+  /* Remove the gray background on active links in IE 10 */
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+  /* Remove the outline when hovering in all browsers */
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* Specify the font family of code elements */
+}
+
+pre {
+  font-size: 1em;
+  /* Correct the odd `em` font sizing in all browsers */
+}
+
+b,
+strong {
+  font-weight: bolder;
+  /* Add the correct font weight in Chrome, Edge, and Safari */
+}
+
+/* https://gist.github.com/unruthless/413930 */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* # =================================================================
+   # Forms
+   # ================================================================= */
+input {
+  border-radius: 0;
+}
+
+/* Replace pointer cursor in disabled elements */
+[disabled] {
+  cursor: default;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+  /* Correct the cursor style of increment and decrement buttons in Chrome */
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* Correct the odd appearance in Chrome and Safari */
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  /* Remove the inner padding in Chrome and Safari on macOS */
+}
+
+textarea {
+  overflow: auto;
+  /* Internet Explorer 11+ */
+  resize: vertical;
+  /* Specify textarea resizability */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  /* Specify font inheritance of form elements */
+}
+
+optgroup {
+  font-weight: bold;
+  /* Restore the font weight unset by the previous rule */
+}
+
+button {
+  overflow: visible;
+  /* Address `overflow` set to `hidden` in IE 8/9/10/11 */
+}
+
+button,
+select {
+  text-transform: none;
+  /* Firefox 40+, Internet Explorer 11- */
+}
+
+/* Apply cursor pointer to button elements */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+[role="button"] {
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Remove inner padding and border in Firefox 4+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* Replace focus style removed in the border reset above */
+button:-moz-focusring,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  outline: 1px dotted ButtonText;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* Correct the inability to style clickable types in iOS */
+}
+
+/* Remove the default button styling in all browsers */
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border-style: none;
+}
+
+/* Style select like a standard input */
+select {
+  -moz-appearance: none;
+  /* Firefox 36+ */
+  -webkit-appearance: none;
+  /* Chrome 41+ */
+}
+
+select::-ms-expand {
+  display: none;
+  /* Internet Explorer 11+ */
+}
+
+select::-ms-value {
+  color: currentColor;
+  /* Internet Explorer 11+ */
+}
+
+legend {
+  border: 0;
+  /* Correct `color` not being inherited in IE 8/9/10/11 */
+  color: inherit;
+  /* Correct the color inheritance from `fieldset` elements in IE */
+  display: table;
+  /* Correct the text wrapping in Edge and IE */
+  max-width: 100%;
+  /* Correct the text wrapping in Edge and IE */
+  white-space: normal;
+  /* Correct the text wrapping in Edge and IE */
+  max-width: 100%;
+  /* Correct the text wrapping in Edge 18- and IE */
+}
+
+::-webkit-file-upload-button {
+  /* Correct the inability to style clickable types in iOS and Safari */
+  -webkit-appearance: button;
+  color: inherit;
+  font: inherit;
+  /* Change font properties to `inherit` in Chrome and Safari */
+}
+
+/* # =================================================================
+   # Specify media element style
+   # ================================================================= */
+img {
+  border-style: none;
+  /* Remove border when inside `a` element in IE 8/9/10 */
+}
+
+/* Add the correct vertical alignment in Chrome, Firefox, and Opera */
+progress {
+  vertical-align: baseline;
+}
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+/* # =================================================================
+   # Accessibility
+   # ================================================================= */
+/* Hide content from screens but not screenreaders */
+
+/* Specify the progress cursor of updating elements */
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+/* Specify the pointer cursor of trigger elements */
+[aria-controls] {
+  cursor: pointer;
+}
+
+/* Specify the unstyled cursor of disabled, not-editable, or otherwise inoperable elements */
+[aria-disabled] {
+  cursor: default;
+}
+
+/*   共通部分
+-------------------------------------------------------------*/
+html {
+  width: 100%;
+}
+
+body {
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 16px;
+  background: #333543;
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 835px;
+  padding: 0 5px;
+}
+
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+li {
+  list-style: none;
+}
+
+/* header */
+.header {
+  background-color: #313131;
+  box-shadow: 0px 3px 6px #00000029;
+  font-family: "Philosopher","游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  padding: 25px 0;
+}
+
+.header a {
+  color: #A4C4FB;
+}
+
+/*   index.ejs
+-------------------------------------------------------------*/
+/* menu */
+.menu {
+  padding: 30px 0;
+}
+
+.menu .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.menu__item li {
+  margin-right: 20px;
+  background-color: #474A5E;
+  border: 1px solid #A4C4FB;
+  border-radius: 10px;
+  padding: 10px 8px;
+  display: block;
+  cursor: pointer;
+}
+
+.menu__item li a {
+  color: #ffffff;
+}
+
+.menu__search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.menu__search input[type="radio"] {
+  display: none;
+}
+
+.menu__search p {
+  background-color: #4B527E;
+  border: 1px solid #A4C4FB;
+  padding: 10px 8px;
+  cursor: pointer;
+}
+
+.menu__search__left {
+  border-radius: 10px 0px 0px 10px;
+  opacity: 0.3;
+}
+
+.menu__search__center {
+  opacity: 0.3;
+}
+
+.menu__search__right {
+  opacity: 0.3;
+}
+
+.menu__search input[type="text"] {
+  background-color: #FFFFFF;
+  border: 2px solid #A4C4FB;
+  padding: 4px 10px;
+  text-align: right;
+  height: 38px;
+  max-width: 200px;
+}
+
+.menu__search input[type="submit"] {
+  background-color: #585656;
+  border: 1px solid #A4C4FB;
+  border-radius: 0px 10px 10px 0px;
+  padding: 9px 8px;
+  height: 38px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-left: -6px;
+}
+
+.menu__search__type {
+  display: none;
+}
+
+.menu__search .use {
+  display: block;
+}
+
+.menu__search .current {
+  opacity: 1;
+}
+
+/* index */
+.index__list {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 24px;
+}
+
+.index__list i {
+  font-size: 1.25rem;
+}
+
+.index__list li {
+  background-color: #555757;
+  border: 1px solid #A4C4FB;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding: 20px 60px;
+  margin-bottom: 5px;
+}
+
+.index__list li a {
+  width: 98%;
+  display: block;
+  color: #ffffff;
+}
+
+.index__list li .fa-star {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(0, -50%);
+}
+
+.index__list li .favorite {
+  color: gold;
+}
+
+.index__menu {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  font-size: 1.375rem;
+}
+
+.index__menu a {
+  margin-right: 5px;
+}
+
+/*   noteTag.ejs addTag.ejs
+-------------------------------------------------------------*/
+.tag {
+  margin-top: 30px;
+  background-color: #3A3E5B;
+  border: 1px solid #A4C4FB;
+  padding: 20px;
+  position: relative;
+}
+
+.tag__title {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tag .fa-window-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #CC1515;
+  font-size: 1.5rem;
+}
+
+.tag__howto {
+  font-size: 0.75rem;
+  color: #ffffffa9;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tag__content {
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 10px;
+}
+
+.tag__content a {
+  color: #FFFFFF;
+}
+
+.tag__add {
+  margin-bottom: 20px;
+  padding: 6px 10px;
+  background-color: #5B74D5;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tag ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.tag ul li {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #494949ce;
+  color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #A4C4FB;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.tag ul li .fa-edit {
+  font-size: 0.8125rem;
+  margin-left: 10px;
+  vertical-align: 1px;
+}
+
+.tag ul li .fa-times {
+  margin-left: 3px;
+  color: #CC1515;
+}
+
+/*   newTag.ejs rename.ejs
+-------------------------------------------------------------*/
+.newTag, .rename {
+  margin-top: 30px;
+  background-color: #3A3E5B;
+  border: 1px solid #A4C4FB;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.newTag__title, .rename__title {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.newTag .fa-window-close, .rename .fa-window-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #CC1515;
+  font-size: 1.5rem;
+}
+
+.newTag input[type=text], .rename input[type=text] {
+  color: #ffffff;
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 5px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.newTag input[type=submit], .rename input[type=submit] {
+  text-align: center;
+  margin-top: 20px;
+  padding: 6px 37px;
+  background-color: #5B74D5;
+  color: #FFFFFF;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+  margin: 20px auto 0;
+}
+
+.newTag input[type=submit] p, .rename input[type=submit] p {
+  padding: 6px 37px;
+  background-color: #5B74D5;
+  border-radius: 5px;
+  display: inline;
+  cursor: pointer;
+}
+
+/*   note.ejs new.ejs
+------------------------------------------------------------
+*/
+.note, .new {
+  margin-top: 30px;
+  background-color: #3A3E5B;
+  border: 1px solid #A4C4FB;
+  padding: 20px;
+  position: relative;
+}
+
+.note__title, .new__title {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.note .fa-window-close, .new .fa-window-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #CC1515;
+  font-size: 1.5rem;
+}
+
+.note__content input, .new__content input {
+  color: #ffffff;
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 5px;
+  width: 60%;
+  display: block;
+}
+
+.note__text, .new__text {
+  color: #ffffff;
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 5px;
+  width: 100%;
+  height: 400px;
+  display: block;
+  margin: 5px 0;
+}
+
+.note__tag, .new__tag {
+  color: #ffffff;
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 5px;
+  padding: 10px;
+}
+
+.note__tag h4, .new__tag h4 {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.note__btn, .new__btn {
+  margin: 15px 0;
+  font-size: 14px;
+  text-align: left;
+  text-align: left;
+}
+
+.note__btn p, .new__btn p {
+  padding: 5px 10px;
+  background-color: #5B74D5;
+  border-radius: 5px;
+  display: inline;
+  cursor: pointer;
+}
+
+.note__btn p, .new__btn p {
+  padding: 5px 10px;
+}
+
+.note__favorite, .new__favorite {
+  color: #ffffff;
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 5px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.note__favorite input, .new__favorite input {
+  margin-right: 2px;
+}
+
+.note__favorite span, .new__favorite span {
+  font-size: 0.75rem;
+  margin-left: 5px;
+}
+
+.note__complete, .new__complete {
+  text-align: center;
+  margin-top: 20px;
+  margin: 30px 0 10px 0;
+}
+
+.note__complete p, .new__complete p {
+  padding: 6px 37px;
+  background-color: #5B74D5;
+  border-radius: 5px;
+  display: inline;
+  cursor: pointer;
+}
+
+.note__complete input, .new__complete input {
+  padding: 6px 37px;
+  background-color: #5B74D5;
+  color: #FFFFFF;
+  border-radius: 5px;
+  display: inline;
+  cursor: pointer;
+}
+
+/* sort */
+.sort-wrapper {
+  display: none;
+}
+
+.sort-back {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sort {
+  margin-top: 30px;
+  background-color: #3A3E5B;
+  border: 1px solid #A4C4FB;
+  padding: 20px;
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.sort__title {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sort .fa-window-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #CC1515;
+  font-size: 1.5rem;
+}
+
+.sort ul {
+  display: inline-block;
+  margin: 30px 0;
+}
+
+.sort ul li {
+  margin-bottom: 20px;
+}
+
+.sort ul li input {
+  text-align: center;
+}
+
+@media screen {
+  [hidden~="screen"] {
+    display: inherit;
+  }
+  [hidden~="screen"]:not(:active):not(:focus):not(:target) {
+    position: absolute !important;
+    clip: rect(0 0 0 0) !important;
+  }
+}
+
+@media all and (-ms-high-contrast: none) {
+  body {
+    font-family: "メイリオ", Meiryo, sans-serif;
+  }
+  .header {
+    font-family: "Philosopher", "メイリオ", Meiryo, sans-serif;
+  }
+  .index__list {
+    font-family: "メイリオ", Meiryo, sans-serif;
+  }
+  .note__tag h4, .new__tag h4 {
+    font-family: "メイリオ", Meiryo, sans-serif;
+  }
+}

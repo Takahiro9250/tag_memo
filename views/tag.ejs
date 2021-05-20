@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag_memo-index</title>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="/">Tag Memo</a>
+  </header>
+
+  <div class="wrapper">
+    <div class="tag" id="tag">
+      <p class="tag__title">タグ一覧</p>
+      <p class="tag__howto">タグの名前をクリックで検索</p>
+      <a href="/"><i class="far fa-window-close" id="close_tag"></i></a>
+      <div class="tag__content">
+        <a href="/newTag" class="tag__add" id="">新規タグ作成</a>
+        <ul>
+          <% tag.forEach((item) => { %>
+            <li>
+              <form action="/searchTag" method="POST">
+                <input type="submit" value="<%= item.name %>" name="search_tag">
+              </form>
+              <a title="改名" href="/rename/<%= item.id %>"><i class="fas fa-edit"></i></a>
+              <form action="/deleteTag" method="POST" onsubmit="return deleteCheck();">
+                <input type="hidden" value="<%= item.id %>" name="tagId">
+                <input title="削除" class="fas fa-times" type="submit" value="&#xf00d">
+              </form>
+            </li>
+          <% }); %>
+        </ul>
+      </div><!-- .tag__content -->
+    </div><!-- .tag -->
+  </div><!-- .wrapper -->
+
+  <script src="js/script.js"></script>
+  <script>
+    // 削除ボタン
+    const deleteCheck = () => {
+        if (confirm('削除しますか？')) {
+          return true;
+        } {
+          return false;
+        }
+      };
+  </script>
+</body>
+</html>

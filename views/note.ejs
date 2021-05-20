@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag_memo-note</title>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <a href="/">Tag Memo</a>
+  </header>
+  <div class="wrapper">
+    <section class="note">
+      <p class="note__title">note</p>
+      <a href="javascript:history.back()"><i class="far fa-window-close" id="close_tag"></i></a>
+      <form action="/update/<%= entry.id %>" method="POST">
+        <div class="note__content">
+          <input type="text" id="title" name="memo_title" value="<%= entry.memo_title %>">
+          <textarea class="note__text" name="memo_text" id="note_text" cols="" rows=""><%= entry.memo_text %></textarea>
+        </div>
+        <div class="note__favorite">
+          <% if (entry.favorite === 1) { %>
+            <input id="favorite" name="favorite" type="checkbox" value="1" checked="checked">
+            <label for="favorite">お気に入り<span>※最上位に表示されます</span></label>
+            <% } else { %>
+            <input id="favorite" name="favorite" type="checkbox" value="1">
+            <label for="favorite">お気に入り<span>※最上位に表示されます</span></label>
+          <% } %>
+        </div>
+        <div class="note__complete">
+          <input type="submit" value="更 新">
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

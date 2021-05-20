@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag_memo-index</title>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="/">Tag Memo</a>
+  </header>
+
+  <div class="wrapper">
+    <section class="tag" id="tag">
+      <p class="tag__title">追加するタグ</p>
+      <a href="javascript:history.back()"><i class="far fa-window-close" id="close_tag"></i></a>
+      <div class="tag__content">
+        <a href="/newTag" class="tag__add" id="">新規タグ作成</a>
+        <ul>
+          <% tag.forEach((item) => { %>
+            <form action="/appendTag" method="POST">
+              <li>
+                <input type="hidden" value="<%= item.id %>" name="tagId">
+                <input type="submit" value="<%= item.name %>">
+              </li>
+            </form>
+          <% }); %>
+        </ul>
+      </div><!-- .tag__content -->
+    </section ><!-- .tag -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>

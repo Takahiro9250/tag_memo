@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag_memo-note</title>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <a href="/">Tag Memo</a>
+  </header>
+  <div class="wrapper">
+    <section class="new">
+      <p class="new__title">新規メモ作成</p>
+      <a href="javascript:history.back()"><i class="far fa-window-close" id="close_tag"></i></a>
+      <form action="/create" method="POST">
+        <div class="new__content">
+          <input type="text" name="memo_title" placeholder="タイトル">
+          <textarea class="new__text" name="memo_text" id="" placeholder="テキスト"></textarea>
+        </div>
+        <div class="new__favorite">
+          <input id="favorite" name="favorite" type="checkbox" value="1">
+          <label for="favorite">お気に入り<span>※最上位に表示されます</span></label>
+        </div>
+        <div class="new__complete">
+          <input type="submit" value="作成">
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

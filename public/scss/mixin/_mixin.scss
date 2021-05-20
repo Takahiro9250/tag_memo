@@ -1,0 +1,146 @@
+@mixin font-m {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 16px;
+  @media all and (-ms-high-contrast: none) {
+    font-family: "メイリオ", Meiryo, sans-serif;
+  }
+}
+
+@mixin font-l {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 24px;
+  @media all and (-ms-high-contrast: none) {
+    font-family: "メイリオ", Meiryo, sans-serif;
+  }
+}
+
+@mixin font-e {
+  font-family: "Philosopher","游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 30px;
+  @media all and (-ms-high-contrast: none) {
+    font-family: "Philosopher", "メイリオ", Meiryo, sans-serif;
+  }
+}
+
+// コンテンツ背景など
+@mixin contentBack {
+  margin-top: 30px;
+  background-color: #3A3E5B;
+  border: 1px solid #A4C4FB;
+  padding: 20px;
+  position: relative;
+  &__title {
+    font-size: rem(20);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .fa-window-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #CC1515;
+    font-size: rem(24);
+  }
+}
+
+// 文章、タイトル、お気に入りの区切り
+@mixin backbox {
+  color: #ffffff;
+  background-color: #00000041;
+  border: 1px solid #A4C4FB;
+  padding: 5px;
+}
+
+@mixin btn {
+  text-align: center;
+  margin-top: 20px;
+  p {
+    padding: 6px 37px;
+    background-color: #5B74D5;
+    border-radius: 5px;
+    display: inline;
+    cursor: pointer;
+  }
+}
+
+@mixin smallBtn {
+  margin: 15px 0;
+  font-size: 14px;
+  text-align: left;
+  p {
+    padding: 5px 10px;
+    background-color: #5B74D5;
+    border-radius: 5px;
+    display: inline;
+    cursor: pointer;
+  }
+}
+
+// content_box
+@mixin content_box {
+  @include contentBack;
+  &__content {
+    input {
+      @include backbox;
+      width: 60%;
+      display: block;
+    }
+  }
+  &__text {
+    @include backbox;
+    width: 100%;
+    height: 400px;
+    display: block;
+    margin: 5px 0;
+  }
+  &__tag {
+    @include backbox;
+    padding: 10px;
+    h4 {
+      @include font-m;
+      font-weight: normal;
+    }
+  }
+  &__btn {
+    @include smallBtn;
+    text-align: left;
+    p {
+      padding: 5px 10px;
+    }
+  }
+  &__favorite {
+    @include backbox;
+    margin-top: 5px;
+    padding: 10px;
+    input {
+      margin-right: 2px;
+    }
+    span {
+      font-size: rem(12);
+      margin-left: 5px;
+    }
+  }
+  &__complete {
+    @include btn;
+    input {
+      padding: 6px 37px;
+      background-color: #5B74D5;
+      color: #FFFFFF;
+      border-radius: 5px;
+      display: inline;
+      cursor: pointer;
+    }
+    margin: 30px 0 10px 0;
+  }
+}
+
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+  @else {
+    @error "$breakpoints に #{$breakpoint} というキーはありません。";
+  }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag_memo-index</title>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="/">Tag Memo</a>
+  </header>
+
+  <div class="main" id="main">
+    <section class="menu">
+      <div class="wrapper">
+        <ul class="menu__item">
+          <li id="menu_tag"><a href="/tag">タグ</a></li>
+          <li id="menu_sort">並び替え</li>
+          <li id="menu_new"><a href="/new">新規作成</a></li>
+        </ul>
+        <div class="menu__search">
+          <p id="search_left" class="menu__search__left current">タイトル</p>
+          <p id="search_center" class="menu__search__center">本文</p>
+          <p id="search_right" class="menu__search__right">タグ</p>
+          <form action="/searchTitle" method="post" id="titleSearch" class="menu__search__type use">
+            <input type="text" placeholder="タイトル検索" name="search_title">
+            <input type="submit" value="&#xf002;" class="fas fa-searhc">
+          </form>
+          <form action="/searchText" method="post" id="textSearch" class="menu__search__type">
+            <input type="text" placeholder="本文検索" name="search_text">
+            <input type="submit" value="&#xf002;" class="fas fa-searhc">
+          </form>
+          <form action="/searchTag" method="post" id="tagSearch" class="menu__search__type">
+            <input type="text" placeholder="タグ検索" name="search_tag">
+            <input type="submit" value="&#xf002;" class="fas fa-searhc">
+          </form>
+          </div>
+      </div>
+    </section><!-- .menu -->
+
+    <section class="index">
+      <div class="wrapper">
+        <ul id="index_list" class="index__list">
+          <% entry.forEach((item) => { %>
+            <li>
+              <% if(item.favorite === 1) { %>
+                <i title="お気に入り" class="fas fa-star favorite"></i>
+              <% } else { %>
+                <i class="far fa-star" title="お気に入り"></i>
+              <% } %>
+              <a href="/note/<%= item.id %>">
+                <%= item.memo_title %>
+              </a>
+              <div class="index__menu">
+                <a title="タグ設定" href="/noteTag/<%= item.id %>" target="" rel="">
+                  <i class="fas fa-tags"></i>
+                </a>
+                <form title="削除" action="/delete/<%= item.id %>" method="POST" onsubmit="return deleteCheck();">
+                  <input class="fas fa-trash-alt" type="submit" value="&#xf2ed;">
+                </form>
+              </div>
+            </li>
+            <% }); %>
+        </ul>
+      </div><!-- .wrapper -->
+    </section><!-- .index -->
+  </div><!-- .main -->
+
+  <!-- ソート選択画面 -->
+  <section class="sort-wrapper" id="sort">
+    <div class="sort-back"></div>
+    <div class="sort">
+      <p class="sort__title">並び順</p>
+      <i class="far fa-window-close" id="close_sort"></i>
+      <ul>
+        <li>
+          <form action="/sort123" method="GET">
+            <input type="submit" value="新しい順">
+          </form>
+        </li>
+        <li>
+          <form action="/sort321" method="GET">
+            <input type="submit" value="古い順">
+          </form>
+        </li>
+        <li>
+          <form action="/sortABC" method="GET">
+            <input type="submit" value="タイトル昇順">
+          </form>
+        </li>
+        <li>
+          <form action="/sortCBA" method="GET">
+            <input type="submit" value="タイトル降順">
+          </form>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <script src="js/script.js"></script>
+  <script>
+    // 削除ボタン
+    const deleteCheck = () => {
+      if (confirm('削除しますか？')) {
+        return true;
+      } {
+        return false;
+      }
+    };
+  </script>
+</body>
+</html>
